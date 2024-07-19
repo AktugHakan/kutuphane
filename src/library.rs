@@ -6,14 +6,20 @@ pub struct Library {
     books: HashMap<u8, Book>,
 }
 
-impl Library {
-    pub fn get_from_barcode(&self, barcode: &u8) -> Option<&Book> {
-        self.books.get(barcode)
+impl Default for Library {
+    fn default() -> Self {
+        Self::new()
     }
+}
 
+impl Library {
     pub fn new() -> Self {
         let books = HashMap::new();
         Library { books }
+    }
+
+    pub fn get_from_barcode(&self, barcode: &u8) -> Option<&Book> {
+        self.books.get(barcode)
     }
 
     pub fn add_book(&mut self, book: Book) {
@@ -32,7 +38,7 @@ impl Library {
     }
 
     pub fn delete_book(&mut self, barcode: u8) -> bool {
-        return self.books.remove(&barcode).is_some();
+        self.books.remove(&barcode).is_some()
     }
 
     pub fn lend(&mut self, barcode: &u8, borrower_name: &str) -> Result<(), String> {

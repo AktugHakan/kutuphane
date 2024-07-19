@@ -49,8 +49,8 @@ pub fn main_menu() -> Command {
         println!("3-{}", menu_messages::CMD_NEW_BOOK);
         println!("4-{}", menu_messages::CMD_REMOVE_BOOK);
         println!("5-{}", menu_messages::CMD_LEND);
-        println!("");
-        println!("0-{}", menu_messages::CMD_EXIT);
+
+        println!("\n0-{}", menu_messages::CMD_EXIT);
         print!("_> ");
         stdout().flush().expect("Cannot write to STDOUT");
         let mut typed_command = String::new();

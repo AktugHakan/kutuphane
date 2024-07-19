@@ -48,6 +48,6 @@ impl Display for Book {
             self.get_occupacy().unwrap_or("-".to_string()),
         ))?;
 
-        return Ok(());
+        Ok(())
     }
 }
